@@ -80,3 +80,4 @@ form input, form select, form textarea {
 input:focus { border: 2px solid blue; }
 input:valid { border: 2px solid green; background-color: #f0fff0; }
 input:invalid:not(:placeholder-shown) { border: 2px solid red; background-color: #fff5f5; }
+/* Ajustes finales de rama */
