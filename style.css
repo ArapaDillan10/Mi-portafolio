@@ -52,7 +52,7 @@ nav {
 }
 
 
-/* --- ORDENAR EL FORMULARIO (Consigna 2) --- */
+/*ORDEN DEL FORMULARIO */ 
 form {
     max-width: 500px;
     margin: 40px auto; /* Lo centra en la pantalla */
@@ -75,7 +75,7 @@ form input, form select, form textarea {
     border: 1px solid #ccc;
 }
 
-/* Validaciones de colores que pidió el profe */
+/* Validaciones de colores*/
 input:focus { border: 2px solid blue; }
 input:valid { border: 2px solid green; background-color: #f0fff0; }
 input:invalid:not(:placeholder-shown) { border: 2px solid red; background-color: #fff5f5; }
