@@ -1,0 +1,10 @@
+# Reflexión.
+
+# ¿Qué diferencia hay entre Scrum y Kanban? ¿Cuál te parece más útil para un proyecto individual y por qué?
+La principal diferencia es que Scrum se organiza en ciclos fijos llamados Sprints con roles definidos, mientras que Kanban es un flujo continuo sin interrupciones temporales que se enfoca en visualizar el trabajo. Para un proyecto individual como el que estamos llevando a cabo, me parece más útil Kanban ya que nos permite ver el progreso de las tareas de forma simple y flexible sin la necesidad de reuniones o roles complejos. Al ser solo un desarrollador, Kanban me ayuda a no saturarme, y a entregar los trabajos solicitados en tiempo y forma.
+
+# ¿Qué es un MVP y cómo lo aplicarías si te piden hacer un sitio web para un negocio local?
+Un MVP es la versión más simple de un producto que permite que sea funcional y entregable con el menor esfuerzo posible para probar si funciona. Si me pidieran un sitio para un negocio local, mi MVP sería una página con la información básica e importante del negocio: como qué venden, dónde están ubicados y botones con diferentes funcionalidades según lo requiera el cliente, ejemplo un botón directo a WhatsApp para pedidos. No perdería el tiempo en funciones muy complejas como un carrito de compras avanzado hasta no ver que la gente realmente entra a la web y se interesa por el servicio ya que si bien siempre es mejor tenerlo todo listo y que la pagina sea la mejor para sierto negocio, tambien puede ser una perdida para el mismo si no la llegaran a saber usar, o sus clientes no la usen.
+
+# ¿Cómo te ayudó el tablero Kanban a organizar las tareas de este TP? Mencioná un ejemplo concreto.
+El tablero Kanban me ayudó a tener una visión clara de qué cosas me faltan o me van a faltar realizar, a no olvidarme de los requisitos que debo cumplir o los cuales fueron solicitados. Un ejemplo concreto fue cuando dividí la creación del formulario y su estilización con CSS en tarjetas separadas dentro de la columna "In Progress". Esto me permitió concentrarme primero en que el HTML funcionara correctamente antes de pasar a realizar otras actividades como el diseño visual, o colores etc.
