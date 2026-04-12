@@ -4,31 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dillan Arapa - Mi primer página</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
+
 <body>
-   <header>
-     <h1>Bienvenidos, a mi primer pagina.</h1>
-     <p>Estudiante de Analisis de sistema. </p>
-    <hr>
-   </header>
-   <nav>
-     <ul>
-       <li><a href="#sobre mi">Sobre mi</a></li>
-       <li><a href="#hobby">Hobby</a></li>
-       <li><a href="#contacto">Podes contactarme</a></li>
-       <li><a href="contact.html">Formulario de contacto.</a></li>
-     </ul>
-   </nav>
-<main>
-  <section id="sobre mi">
-    <h2>Sobre mi</h2>
-    <p>Mi nombre es Dillan Arapa, me puedes decir dillom o carrasca' tengo 19 años, de Argentina. Actualmente vivo en la ciudad de Salta pero soy de un departamento llamado La Poma. Estoy en mi segundo año de esta carrera en la cual quiero recibirme para poder llegar a ser un profecional, programar o mediante mi trabajo poder llegar a ayudar a mucha gente.
+  <div class="layout" id="contenedorPrincipal">
+    <header>
+      <button class="btn-menu" id="toggleBtn">☰ Menú</button>
+      <h1>Bienvenidos a mi primer página</h1>
+      <p>Estudiante de Análisis de Sistemas</p>
+      <nav class="nav-header">
+        <ul>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+      <nav>
+        <ul>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#hobby">Hobby</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <section class="hero">
+        <div class="hero-contenido">
+            <h1>Dillan Arapa</h1>
+            <h2>Desarrollador Web Junior & Barbero</h2>
+            <a href="https://github.com/ArapaDillan10" target="_blank" class="btn-cta">Ver mi GitHub</a>
+        </div>
+      </section>
+
+      <section id="sobre-mi">
+        <h2>Sobre mi</h2>
+        <p>Mi nombre es Dillan Arapa, me puedes decir dillom o carrasca' tengo 19 años, de Argentina. Actualmente vivo en la ciudad de Salta pero soy de un departamento llamado La Poma. Estoy en mi segundo año de esta carrera en la cual quiero recibirme para poder llegar a ser un profecional, programar o mediante mi trabajo poder llegar a ayudar a mucha gente.
 Estoy aprendiendo a programar, y a crear mi primer sitio web.</p>
-    <img src="dillanft1jpeg.jpeg" alt="Foto de dillan" width="300">
-  </section>
-  
+        <img src="images/dillanft1jpeg.jpeg" alt="Foto de dillan" width="300">
+      </section>
+      
   <section id="hobby">
     <h2>Hobby</h2>
     <ul>
@@ -37,6 +60,23 @@ Estoy aprendiendo a programar, y a crear mi primer sitio web.</p>
     </ul>
     <img src="https://imgs.search.brave.com/7MK_6r0to5kd9-cbK6GriLqB2tiUQelKZb6KzQe8VB4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuZnJlc2hhLmNv/bS9sb2NhdGlvbnMv/bG9jYXRpb24tcHJv/ZmlsZS1pbWFnZXMv/ODcyNjc3LzIyMzM0/NTIvNjczNjMzNTYt/YzIwNy00ZmQzLWEz/MWMtYzkyZTA3YWI5/OTY4LUJhcmJlcmlh/SGFyZE1pbmQtQVIt/QnVlbm9zQWlyZXMt/QnVlbm9zQWlyZXMt/Q2FwaXRhbGZlZGVy/YWwtRnJlc2hhLmpw/Zz9jbGFzcz13aWR0/aC1zbWFsbA" alt="barberia" width="400">
   </section>
+  <section id="servicios">
+    <h2 class="titulo-seccion">Mis Servicios</h2>
+    <div class="contenedor-cards">
+        <article class="card">
+            <h3>Corte de Cabello</h3>
+            <p>Servicio de barbería cortes clasicos y modernos.</p>
+        </article>
+        <article class="card">
+            <h3>Desarrollo Web</h3>
+            <p>Creación de sitios web diversos, funcionales utilizando HTML y CSS.</p>
+        </article>
+        <article class="card">
+            <h3>Perfilado de Barba y cejas.</h3>
+            <p>Cuidado y perfilado facial.</p>
+        </article>
+    </div>
+</section>
   <p>Recomendacion de un cantante que deberias escuchar:
       <a href="http://www.youtube.com/@ysy__a" target="_blank">
           Click
@@ -64,11 +104,21 @@ Estoy aprendiendo a programar, y a crear mi primer sitio web.</p>
         </li>
     </ul>
  <section>
-</section>
+      
+      </main>
 
-<hr>
-<footer>
-    <p>Copyright © 2026 Dillan Arapa, Salta, Argentina.</p>
-</footer>
+    <footer>
+        <p>Copyright © 2026 Dillan Arapa, Salta, Argentina.</p>
+    </footer>
+  </div>
+
+  <script>
+    const btn = document.getElementById('toggleBtn');
+    const layout = document.getElementById('contenedorPrincipal');
+
+    btn.addEventListener('click', () => {
+        layout.classList.toggle('sidebar-oculto');
+    });
+  </script>
 </body>
 </html>

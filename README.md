@@ -19,3 +19,10 @@ Para conocer la ruta de instalación de Git en mi sistema, ejecuté el siguiente
 
 ```bash
 which git
+# Podes ver el proyecto funcionando aquí:
+- https://arapadillan10.github.io/Arapadillan-mi-primer-sitio.tp1/
+-# Tecnologías y Metodologías
+- HTML5 & CSS3 (Semántica y Estilos)
+- Flexbox & CSS Grid (Layout del sitio)
+- Responsive Design (Adaptabilidad con Media Queries)
+- Metodología Mobile-First
