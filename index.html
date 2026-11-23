@@ -3,121 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dillan Arapa - Mi primer página</title>
+    <title>Dillan Arapa | Portafolio</title>
+    <meta name="description" content="Portafolio de Dillan Arapa: desarrollo web full-stack y barbería.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
   <div class="layout" id="contenedorPrincipal">
-    <header>
-      <button class="btn-menu" id="toggleBtn">☰ Menú</button>
-      <h1>Bienvenidos a mi primer página</h1>
-      <p>Estudiante de Análisis de Sistemas</p>
-      <nav class="nav-header">
+
+    <!-- CABECERA: un solo menú principal, sin títulos duplicados -->
+    <header class="header">
+      <button class="btn-menu" id="toggleBtn" type="button" aria-controls="sidebar" aria-expanded="true">☰ Menú</button>
+      <p class="brand">Dillan Arapa</p>
+      <nav class="nav-header" aria-label="Navegación principal">
         <ul>
+          <li><a href="#inicio">Inicio</a></li>
           <li><a href="#sobre-mi">Sobre mí</a></li>
-          <li><a href="contact.html">Contacto</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#formacion">Formación</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
     </header>
 
-    <aside class="sidebar" id="sidebar">
-      <nav>
-        <ul>
-          <li><a href="#sobre-mi">Sobre mí</a></li>
-          <li><a href="#hobby">Hobby</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="contact.html">Contacto</a></li>
-        </ul>
-      </nav>
+    <!-- BARRA LATERAL: accesos rápidos (no repite el menú completo) -->
+    <aside class="sidebar" id="sidebar" aria-label="Barra lateral">
+      <p class="sidebar-titulo">Dillan Arapa</p>
+      <p>Desarrollo web y barbería.</p>
+      <a href="https://github.com/ArapaDillan10" target="_blank" rel="noopener noreferrer">Ver mi GitHub</a>
+      <p class="completar">[COMPLETAR: ¿qué va en la barra lateral? ¿Se mantiene o se unifica con el menú del header?]</p>
     </aside>
 
     <main class="main">
-      <section class="hero">
+
+      <!-- INICIO -->
+      <section class="hero" id="inicio" aria-labelledby="titulo-inicio">
         <div class="hero-contenido">
-            <h1>Dillan Arapa</h1>
-            <h2>Desarrollador Web Junior & Barbero</h2>
-            <a href="https://github.com/ArapaDillan10" target="_blank" class="btn-cta">Ver mi GitHub</a>
+          <p class="hero-nombre">Dillan Arapa</p>
+          <h1 id="titulo-inicio"><span class="completar">[COMPLETAR: título que querés en el inicio]</span></h1>
+          <p class="hero-rol">Desarrollador Full-Stack &amp; Barbero</p>
+          <p class="hero-frase completar">[COMPLETAR: frase corta]</p>
+          <div class="hero-botones">
+            <a href="#proyectos" class="btn-cta">Ver proyectos</a>
+            <a href="#contacto" class="btn-cta btn-cta-secundario">Contacto</a>
+          </div>
         </div>
       </section>
 
-      <section id="sobre-mi">
-        <h2>Sobre mi</h2>
-        <p>Mi nombre es Dillan Arapa, me puedes decir dillom o carrasca' tengo 19 años, de Argentina. Actualmente vivo en la ciudad de Salta pero soy de un departamento llamado La Poma. Estoy en mi segundo año de esta carrera en la cual quiero recibirme para poder llegar a ser un profecional, programar o mediante mi trabajo poder llegar a ayudar a mucha gente.
-Estoy aprendiendo a programar, y a crear mi primer sitio web.</p>
-        <img src="images/dillanft1jpeg.jpeg" alt="Foto de dillan" width="300">
+      <!-- SOBRE MÍ (texto del CV, sin datos personales sensibles) -->
+      <section id="sobre-mi" aria-labelledby="titulo-sobre-mi">
+        <h2 id="titulo-sobre-mi">Sobre mí</h2>
+        <p>Estudiante de la Tecnicatura Superior en Análisis de Sistemas y Desarrollo de Software (IES N°6001), con experiencia en desarrollo de aplicaciones web full-stack individuales y en equipo, gestión de un emprendimiento propio y atención al público. Busco oportunidades para seguir incorporando conocimientos y experiencia en entornos reales.</p>
+        <p>Soy de La Poma. Me formé como barbero en la Academia Fusion Total Studio y disfruto la atención al público. En mi emprendimiento de compra y venta online gestioné ventas, pedidos a proveedores, precios, cobros, envíos y entregas durante 7 meses.</p>
+        <figure class="sobre-mi-figure">
+          <img src="images/dillanft1jpeg.jpeg" alt="Retrato de Dillan Arapa" width="300">
+          <figcaption class="completar">[COMPLETAR: si querés, agregá una descripción debajo de tu foto]</figcaption>
+        </figure>
       </section>
-      
-  <section id="hobby">
-    <h2>Hobby</h2>
-    <ul>
-      <p><strong>Hobby :</strong> Mi hobby es ser barbero. Hace dos años y medio descubrí esta profesión, si bien me llamaba la atención desde mucho antes, ahora estoy ejerciendola ya que siento que no solamente sea cortar el pelo asi de simple sino que muchas veces es ayudar a las personas a cambiar de estilos, dejandolos más presentables y muchas veces más allá de cortar el pelo surgue un buen ambiente entre el barbero y el cliente.
-      Si bien mi proceso es medio lento porque a la par de esto tambien estudio le dedico el tiempo a ambas cosas, pero el sueño desde que empecé en el mundo de la barberia es tener mi barber studio DKBZA. </p>
-    </ul>
-    <img src="https://imgs.search.brave.com/7MK_6r0to5kd9-cbK6GriLqB2tiUQelKZb6KzQe8VB4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuZnJlc2hhLmNv/bS9sb2NhdGlvbnMv/bG9jYXRpb24tcHJv/ZmlsZS1pbWFnZXMv/ODcyNjc3LzIyMzM0/NTIvNjczNjMzNTYt/YzIwNy00ZmQzLWEz/MWMtYzkyZTA3YWI5/OTY4LUJhcmJlcmlh/SGFyZE1pbmQtQVIt/QnVlbm9zQWlyZXMt/QnVlbm9zQWlyZXMt/Q2FwaXRhbGZlZGVy/YWwtRnJlc2hhLmpw/Zz9jbGFzcz13aWR0/aC1zbWFsbA" alt="barberia" width="400">
-  </section>
-  <section id="servicios">
-    <h2 class="titulo-seccion">Mis Servicios</h2>
-    <div class="contenedor-cards">
-        <article class="card">
-            <h3>Corte de Cabello</h3>
-            <p>Servicio de barbería cortes clasicos y modernos.</p>
-        </article>
-        <article class="card">
-            <h3>Desarrollo Web</h3>
-            <p>Creación de sitios web diversos, funcionales utilizando HTML y CSS.</p>
-        </article>
-        <article class="card">
-            <h3>Perfilado de Barba y cejas.</h3>
-            <p>Cuidado y perfilado facial.</p>
-        </article>
-    </div>
-</section>
-  <p>Recomendacion de un cantante que deberias escuchar:
-      <a href="http://www.youtube.com/@ysy__a" target="_blank">
-          Click
-      </a>
-  <section id="contacto">
-    <h2>Podes contactarme</h2>
-   
-    <ul>
-        <li>
-             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=arapadillan2006@gmail.com" target="_blank">
-            Enviarme un correo
-            </a>
-        </li>
-        
-        <li>
-             <a href="https://www.instagram.com/arapa_dillan_?igsh=MWFveGUxdmd6YTM4OA==" target="_blank">
-            Contactame por Instagram
-            </a>
-        </li>
 
-        <li>
-             <a href="https://www.facebook.com/dillan.arapa.50" target="_blank">
-            Contactame por Facebook
-            </a>
-        </li>
-    </ul>
- <section>
-      
-      </main>
+      <!-- HABILIDADES -->
+      <section id="habilidades" aria-labelledby="titulo-habilidades">
+        <h2 id="titulo-habilidades">Habilidades</h2>
+        <p><strong>Domino:</strong> <span class="completar">[COMPLETAR: tecnologías que dominás]</span></p>
+        <p><strong>En aprendizaje:</strong> <span class="completar">[COMPLETAR: tecnologías en aprendizaje]</span></p>
+        <h3>Según mi CV</h3>
+        <ul class="lista-habilidades">
+          <li><strong>Desarrollo:</strong> PHP 8, CodeIgniter, JavaScript, TypeScript, React, Python, FastAPI, HTML5, CSS3, Tailwind CSS, Bootstrap</li>
+          <li><strong>Datos y herramientas:</strong> MySQL, PostgreSQL, PDO, Git, GitHub, XAMPP, Figma, Vercel, InfinityFree, WinSCP</li>
+          <li><strong>Gestión y atención:</strong> atención al cliente, control de stock, organización, barbería</li>
+        </ul>
+      </section>
+
+      <!-- PROYECTOS -->
+      <section id="proyectos" aria-labelledby="titulo-proyectos">
+        <h2 id="titulo-proyectos">Proyectos</h2>
+        <div class="contenedor-cards">
+
+          <article class="card">
+            <p class="etiqueta">Individual</p>
+            <h3>Este portafolio</h3>
+            <p>Sitio de una sola página con HTML5, CSS3 y un script simple para la barra lateral.</p>
+            <p><strong>Demo:</strong> <span class="completar">[COMPLETAR: link de GitHub Pages]</span></p>
+          </article>
+
+          <article class="card">
+            <p class="etiqueta">Individual</p>
+            <h3>DKBZA Barber Studio</h3>
+            <p>Sitio web para barbería desarrollado con PHP 8, JavaScript y Bootstrap a partir de un diseño en Figma. Base de datos MySQL normalizada hasta 3FN, CRUD de servicios con PDO y consultas preparadas, login con roles, contraseñas cifradas con bcrypt, protección CSRF, sesión de 30 minutos y bloqueo tras 5 intentos fallidos.</p>
+            <p><strong>Demo:</strong> <span class="completar">[COMPLETAR: link de demo o "no tiene demo online"]</span></p>
+            <a href="https://github.com/ArapaDillan10/Pagina-para-barberias" target="_blank" rel="noopener noreferrer">Ver código</a>
+          </article>
+
+          <article class="card">
+            <p class="etiqueta">Grupal</p>
+            <h3>MS3D Web Application Design</h3>
+            <p>Tienda web de impresión 3D con catálogo, carrito, checkout y panel de pedidos, desarrollada en equipo de 3 integrantes con React 19, TypeScript, FastAPI y PostgreSQL.</p>
+            <p><strong>Mi parte:</strong> <span class="completar">[COMPLETAR: escribí acá qué hiciste vos]</span></p>
+            <p><strong>Demo:</strong> <span class="completar">[COMPLETAR: link de demo]</span></p>
+            <a href="https://github.com/ZetahZ/MS3DWebApplicationDesign" target="_blank" rel="noopener noreferrer">Ver código</a>
+          </article>
+
+          <article class="card">
+            <p class="etiqueta">Independiente</p>
+            <h3>Emprendimiento de compra y venta online</h3>
+            <p>Gestioné ventas online durante 7 meses (ene 2026 – jul 2026): publicación y oferta de productos, pedidos a proveedores, precios, cobros, envíos y entregas.</p>
+            <p class="completar">[COMPLETAR: ¿mostrar este proyecto en el portafolio o dejarlo solo en el CV?]</p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- FORMACIÓN -->
+      <section id="formacion" aria-labelledby="titulo-formacion">
+        <h2 id="titulo-formacion">Formación</h2>
+        <ul class="lista-formacion">
+          <li><strong>Tecnicatura Superior en Análisis de Sistemas y Desarrollo de Software</strong> — Instituto de Educación Superior N°6001 · 2025 – Actual</li>
+          <li><strong>Curso de Barbería</strong> — Academia Fusion Total Studio · ene 2025 – jul 2025</li>
+        </ul>
+      </section>
+
+      <!-- SERVICIOS / DKBZA -->
+      <section id="servicios" aria-labelledby="titulo-servicios">
+        <h2 id="titulo-servicios">Servicios / DKBZA Barber</h2>
+        <div class="contenedor-cards">
+          <article class="card">
+            <h3>Corte de cabello</h3>
+            <p>Servicio de barbería, cortes clásicos y modernos.</p>
+          </article>
+          <article class="card">
+            <h3>Desarrollo web</h3>
+            <p>Creación de sitios web diversos y funcionales utilizando HTML y CSS.</p>
+          </article>
+          <article class="card">
+            <h3>Perfilado de barba y cejas</h3>
+            <p>Cuidado y perfilado facial.</p>
+          </article>
+        </div>
+
+        <div class="galeria">
+          <h3>Galería DKBZA</h3>
+          <p class="completar">[COMPLETAR: nombres de las fotos de la galería en images/]</p>
+        </div>
+        <p class="completar">[COMPLETAR: texto sobre tu sueño de tener tu barber studio, si querés agregarlo]</p>
+      </section>
+
+      <!-- HOBBY (a confirmar) -->
+      <section id="hobby" aria-labelledby="titulo-hobby">
+        <h2 id="titulo-hobby">Hobby</h2>
+        <p>Mi hobby es ser barbero. Hace dos años y medio descubrí esta profesión; si bien me llamaba la atención desde mucho antes, ahora la estoy ejerciendo porque siento que no se trata solamente de cortar el pelo, sino de ayudar a las personas a cambiar de estilo, dejarlas más presentables y, muchas veces, de que surja un buen ambiente entre el barbero y el cliente.</p>
+        <p>Si bien mi proceso es medio lento porque a la par de esto también estudio, le dedico el tiempo a ambas cosas. El sueño desde que empecé en el mundo de la barbería es tener mi barber studio DKBZA.</p>
+        <img src="https://imgs.search.brave.com/7MK_6r0to5kd9-cbK6GriLqB2tiUQelKZb6KzQe8VB4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuZnJlc2hhLmNv/bS9sb2NhdGlvbnMvbG9jYXRpb24tcHJv/ZmlsZS1pbWFnZXMv/ODcyNjc3LzIyMzM0/NTIvNjczNjMzNTYt/YzIwNy00ZmQzLWEz/MWMtYzkyZTA3YWI5/OTY4LUJhcmJlcmlh/SGFyZE1pbmQtQVIt/QnVlbm9zQWlyZXMt/QnVlbm9zQWlyZXMt/Q2FwaXRhbGZlZGVy/YWwtRnJlc2hhLmpw/Zz9jbGFzcz13aWR0/aC1zbWFsbA" alt="Interior de una barbería con sillones y espejos" width="400">
+        <p class="completar">[COMPLETAR: ¿conservar esta sección y la foto externa de barbería?]</p>
+      </section>
+
+      <!-- RECOMENDACIÓN (a confirmar) -->
+      <section id="recomendacion" aria-labelledby="titulo-recomendacion">
+        <h2 id="titulo-recomendacion">Recomendación</h2>
+        <p>Recomendación de un cantante que deberías escuchar:
+          <a href="http://www.youtube.com/@ysy__a" target="_blank" rel="noopener noreferrer">Escuchar en YouTube</a>
+        </p>
+        <p class="completar">[COMPLETAR: ¿conservar esta recomendación?]</p>
+      </section>
+
+      <!-- CONTACTO -->
+      <section id="contacto" aria-labelledby="titulo-contacto">
+        <h2 id="titulo-contacto">Podés contactarme</h2>
+        <ul class="lista-contacto">
+          <li>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=arapadillan2006@gmail.com" target="_blank" rel="noopener noreferrer">Enviarme un correo</a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/arapa_dillan_?igsh=MWFveGUxdmd6YTM4OA==" target="_blank" rel="noopener noreferrer">Contactame por Instagram</a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/dillan.arapa.50" target="_blank" rel="noopener noreferrer">Contactame por Facebook</a>
+          </li>
+        </ul>
+        <a href="contact.html" class="btn-cta">Ir al formulario de contacto</a>
+      </section>
+
+    </main>
 
     <footer>
-        <p>Copyright © 2026 Dillan Arapa, Salta, Argentina.</p>
+      <p>Copyright © 2026 Dillan Arapa.</p>
     </footer>
   </div>
 
   <script>
+    // Botón simple para mostrar/ocultar la barra lateral.
     const btn = document.getElementById('toggleBtn');
     const layout = document.getElementById('contenedorPrincipal');
 
     btn.addEventListener('click', () => {
-        layout.classList.toggle('sidebar-oculto');
+      layout.classList.toggle('sidebar-oculto');
+      const oculto = layout.classList.contains('sidebar-oculto');
+      btn.setAttribute('aria-expanded', String(!oculto));
     });
   </script>
 </body>
