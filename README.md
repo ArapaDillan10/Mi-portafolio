@@ -29,17 +29,3 @@ mi-portafolio/
 ├── notas-terminal.md   # comandos de terminal usados en el proyecto
 └── reflexion-agile.md  # reflexión sobre Scrum, Kanban y MVP
 ```
-
-## Cómo correrlo
-
-1. Descargá o cloná este repositorio.
-2. Abrí `index.html` con doble clic en tu navegador.
-3. Para ver el formulario, entrá a `contact.html` o usá el botón "Ir al formulario de contacto".
-
-No hace falta instalar dependencias ni ejecutar comandos adicionales.
-
-## Reflexión sobre la terminal
-
-Aprender a usar la terminal es importante porque permite interactuar directamente con el sistema operativo sin depender de la interfaz gráfica. Eso da más control, rapidez y flexibilidad para tareas como gestionar archivos o trabajar con Git. Además, ayuda a entender mejor cómo funciona el sistema por dentro y es una herramienta fundamental para cualquier persona que programe.
-
-Los comandos que usé están detallados en [notas-terminal.md](notas-terminal.md). La reflexión sobre Kanban, Scrum y MVP está en [reflexion-agile.md](reflexion-agile.md).
