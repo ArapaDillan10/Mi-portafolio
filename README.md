@@ -1,4 +1,4 @@
-# Dillan Arapa | Portafolio
+# Arapa Dillan Luigi Adolfo | Portafolio
 
 Portafolio personal de una sola página donde presento mi trabajo como desarrollador web full-stack y mi camino en la barbería. Estudiante de la Tecnicatura Superior en Análisis de Sistemas y Desarrollo de Software en el IES N°6001, con proyectos individuales y en equipo, gestión de un emprendimiento propio y atención al público.
 
@@ -6,8 +6,7 @@ Portafolio personal de una sola página donde presento mi trabajo como desarroll
 
 ## Ver el sitio
 
-- GitHub Pages: https://arapadillan10.github.io/Arapadillan-mi-primer-sitio.tp1/
-- Captura de pantalla: se agregará cuando el sitio esté publicado con esta versión.
+- Vercel: https://mi-portafolio-arapa.vercel.app/
 
 ## Tecnologías usadas
 
