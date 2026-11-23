@@ -5,25 +5,26 @@
    Fuentes del sistema: no dependemos de Google Fonts ni de internet.
    ============================================================ */
 :root {
-    --bg: #F6F4F0;                  /* crema claro: fondo general */
-    --superficie: #FFFFFF;          /* blanco: secciones y barra lateral */
-    --tarjeta: #F0EDE7;             /* crema más oscuro: tarjetas y campos */
-    --footer: #1A1A1A;              /* negro suave: pie de página y hero */
-    --borde: #DCD6CC;               /* bordes discretos */
-    --texto: #1A1A1A;               /* negro suave: texto principal */
-    --texto-suave: #5A5751;         /* gris cálido: textos secundarios */
-    --texto-inverso: #F5F2EC;       /* blanco cálido: texto sobre fondo oscuro */
-    --texto-inverso-suave: #D8D3C9; /* gris claro: texto secundario sobre oscuro */
-    --placeholder: #7A756D;         /* texto de ayuda en formularios */
-    --acento: #A11E2B;              /* rojo profundo: detalles */
-    --acento-hover: #C22838;        /* rojo más vivo: hover */
-    --acento-fuerte: #8A1723;       /* vino: botones con texto claro */
-    --acento-suave: rgba(161, 30, 43, 0.10);
-    --acento-borde: rgba(161, 30, 43, 0.30);
-    --foco: rgba(161, 30, 43, 0.30);
-    --azul: #1F3A5F;                /* azul acero: apoyo en el hero */
-    --valido: #2E7D5B;              /* verde suave: campo válido */
-    --dorado: #E8C07D;              /* dorado: detalle del hero */
+    /* Paleta River Plate: rojo de la banda, blanco de la camiseta y negro del escudo */
+    --bg: #FFFFFF;                  /* blanco: fondo general */
+    --superficie: #FFFFFF;          /* blanco: secciones, header y barra lateral */
+    --tarjeta: #F6F6F6;             /* blanco con un toque de negro: tarjetas y campos */
+    --footer: #231F20;              /* negro del escudo: pie de página */
+    --borde: #D9D9D9;               /* negro suave: bordes discretos */
+    --texto: #000000;               /* negro: texto principal */
+    --texto-suave: #4A4646;         /* negro suave: textos secundarios */
+    --texto-inverso: #FFFFFF;       /* blanco: texto sobre fondo oscuro */
+    --texto-inverso-suave: #E6E6E6; /* blanco suave: texto secundario sobre oscuro */
+    --placeholder: #757171;         /* texto de ayuda en formularios */
+    --acento: #E2211C;              /* rojo de la banda: detalles */
+    --acento-hover: #ED192D;        /* rojo del escudo: hover */
+    --acento-fuerte: #E2211C;       /* rojo de la banda: botones con texto blanco */
+    --acento-suave: rgba(226, 33, 28, 0.10);
+    --acento-borde: rgba(226, 33, 28, 0.30);
+    --foco: rgba(226, 33, 28, 0.30);
+    --negro-escudo: #231F20;        /* negro del escudo: apoyo en el hero */
+    --detalle-hero: #FFFFFF;        /* blanco: detalle del hero */
+    --valido: #2E7D5B;              /* verde funcional: indica campo válido en el formulario */
     --radio: 14px;
     --sombra: 0 8px 24px rgba(0, 0, 0, 0.12);
     --sombra-suave: 0 4px 14px rgba(0, 0, 0, 0.08);
@@ -247,7 +248,7 @@ h3 { font-size: 1.25rem; }
     border: none;
     border-radius: var(--radio);
     padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem);
-    background: linear-gradient(135deg, var(--footer) 0%, var(--azul) 60%, var(--acento-fuerte) 100%);
+    background: linear-gradient(135deg, var(--negro-escudo) 0%, var(--texto) 45%, var(--acento-fuerte) 100%);
     color: var(--texto-inverso);
     box-shadow: var(--sombra);
 }
@@ -267,7 +268,7 @@ h3 { font-size: 1.25rem; }
     text-transform: uppercase;
     letter-spacing: 0.25em;
     font-size: 0.85rem;
-    color: var(--dorado);
+    color: var(--detalle-hero);
 }
 
 .hero-rol {
@@ -432,7 +433,7 @@ h3 { font-size: 1.25rem; }
 }
 
 /* ============================================================
-   10. FOTO Y GALERÍA
+   10. FOTO
    ============================================================ */
 .sobre-mi-figure {
     margin: 1.25rem 0 0;
@@ -441,18 +442,6 @@ h3 { font-size: 1.25rem; }
 .sobre-mi-figure img {
     width: min(100%, 300px);
     border: 2px solid var(--borde);
-    border-radius: var(--radio);
-    box-shadow: var(--sombra-suave);
-}
-
-.galeria {
-    margin-top: 1.5rem;
-}
-
-.galeria img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
     border-radius: var(--radio);
     box-shadow: var(--sombra-suave);
 }
@@ -536,9 +525,7 @@ form input:invalid:not(:placeholder-shown) {
     min-height: 100vh;
 }
 
-.header-contacto {
-    position: static;
-}
+/* El header de contacto comparte el sticky de .header */
 
 .navegacion-contacto {
     display: flex;
