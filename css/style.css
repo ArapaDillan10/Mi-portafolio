@@ -15,16 +15,13 @@
     --texto-suave: #4A4646;         /* negro suave: textos secundarios */
     --texto-inverso: #FFFFFF;       /* blanco: texto sobre fondo oscuro */
     --texto-inverso-suave: #E6E6E6; /* blanco suave: texto secundario sobre oscuro */
-    --placeholder: #757171;         /* texto de ayuda en formularios */
     --acento: #E2211C;              /* rojo de la banda: detalles */
     --acento-hover: #ED192D;        /* rojo del escudo: hover */
     --acento-fuerte: #E2211C;       /* rojo de la banda: botones con texto blanco */
     --acento-suave: rgba(226, 33, 28, 0.10);
     --acento-borde: rgba(226, 33, 28, 0.30);
-    --foco: rgba(226, 33, 28, 0.30);
     --franja-suave: rgba(226, 33, 28, 0.15);      /* bordes difusos de la franja del hero */
     --blanco-transparente: rgba(255, 255, 255, 0); /* halo blanco detrás del texto */
-    --valido: #2E7D5B;              /* verde funcional: indica campo válido en el formulario */
     --radio: 14px;
     --header-altura: 4.8rem;        /* alto del header fijo; el script lo ajusta al valor real */
     --sombra: 0 8px 24px rgba(0, 0, 0, 0.12);
@@ -129,7 +126,7 @@ h3 { font-size: 1.25rem; }
 }
 
 .btn-menu {
-    margin-left: auto;
+    margin-left: 0;
     background-color: var(--acento-fuerte);
     color: var(--texto-inverso);
     border: 2px solid var(--acento-fuerte);
@@ -301,11 +298,9 @@ h3 { font-size: 1.25rem; }
 }
 
 /* ============================================================
-   7. BOTONES (hero, contacto y formulario)
+   7. BOTONES
    ============================================================ */
-.btn-cta,
-.btn-enviar,
-.btn-volver {
+.btn-cta {
     display: inline-block;
     font-family: var(--fuente-texto);
     font-weight: 600;
@@ -319,9 +314,7 @@ h3 { font-size: 1.25rem; }
     transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
-.btn-cta:hover,
-.btn-enviar:hover,
-.btn-volver:hover {
+.btn-cta:hover {
     background-color: var(--acento-hover);
     border-color: var(--acento-hover);
     transform: translateY(-2px);
@@ -458,103 +451,7 @@ h3 { font-size: 1.25rem; }
 }
 
 /* ============================================================
-   11. FORMULARIO (contact.html)
-   Mantiene las validaciones HTML; solo cambia el aspecto.
-   ============================================================ */
-form {
-    max-width: 34rem;
-    margin: 0 auto;
-    display: grid;
-    gap: 0.9rem;
-    background-color: var(--superficie);
-    border: 1px solid var(--borde);
-    border-radius: var(--radio);
-    padding: clamp(1rem, 3vw, 1.75rem);
-}
-
-form label {
-    color: var(--texto);
-    font-weight: 600;
-    font-size: 0.95rem;
-}
-
-form input,
-form select,
-form textarea {
-    width: 100%;
-    padding: 0.75rem 0.85rem;
-    background-color: var(--bg);
-    color: var(--texto);
-    border: 1px solid var(--borde);
-    border-radius: 10px;
-    font-family: inherit;
-    font-size: 1rem;
-}
-
-form input::placeholder,
-form textarea::placeholder {
-    color: var(--placeholder);
-}
-
-form input:focus,
-form select:focus,
-form textarea:focus {
-    border-color: var(--acento);
-    outline: 2px solid var(--foco);
-    outline-offset: 2px;
-}
-
-form input:valid {
-    border-color: var(--valido);
-}
-
-form input:invalid:not(:placeholder-shown) {
-    border-color: var(--acento);
-}
-
-.form-acciones {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-}
-
-.form-acciones input {
-    width: auto;
-    accent-color: var(--acento);
-}
-
-.btn-enviar {
-    width: 100%;
-}
-
-/* ============================================================
-   12. PÁGINA DE CONTACTO
-   ============================================================ */
-.pagina-contacto {
-    background-color: var(--bg);
-    color: var(--texto);
-    min-height: 100vh;
-}
-
-/* El header de contacto comparte el sticky de .header */
-
-.navegacion-contacto {
-    display: flex;
-}
-
-.main-contacto {
-    max-width: 44rem;
-    margin: 0 auto;
-    padding: clamp(1rem, 4vw, 2.5rem);
-}
-
-.main-contacto h1 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-/* ============================================================
-   13. PIE DE PÁGINA
+   11. PIE DE PÁGINA
    ============================================================ */
 footer {
     grid-area: footer;
@@ -567,7 +464,7 @@ footer {
 }
 
 /* ============================================================
-   14. PANTALLAS GRANDES (desde 768px en adelante)
+   12. PANTALLAS GRANDES (desde 768px en adelante)
    ============================================================ */
 @media (min-width: 768px) {
     .layout {
@@ -606,9 +503,6 @@ footer {
         min-height: 70vh;
     }
 
-    .btn-enviar {
-        width: auto;
-    }
 }
 
 @media (min-width: 1024px) {
@@ -632,8 +526,6 @@ footer {
     }
 
     .btn-cta,
-    .btn-enviar,
-    .btn-volver,
     .btn-menu,
     .card,
     .lista-contacto a {
