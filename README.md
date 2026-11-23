@@ -20,7 +20,6 @@ Portafolio personal de una sola página donde presento mi trabajo como desarroll
 ```text
 mi-portafolio/
 ├── index.html          # página principal del portafolio
-├── contact.html        # formulario de contacto con validaciones
 ├── css/
 │   └── style.css       # estilos originales, mobile first
 ├── images/
