@@ -22,8 +22,8 @@
     --acento-suave: rgba(226, 33, 28, 0.10);
     --acento-borde: rgba(226, 33, 28, 0.30);
     --foco: rgba(226, 33, 28, 0.30);
-    --negro-escudo: #231F20;        /* negro del escudo: apoyo en el hero */
-    --detalle-hero: #FFFFFF;        /* blanco: detalle del hero */
+    --franja-suave: rgba(226, 33, 28, 0.15);      /* bordes difusos de la franja del hero */
+    --blanco-transparente: rgba(255, 255, 255, 0); /* halo blanco detrás del texto */
     --valido: #2E7D5B;              /* verde funcional: indica campo válido en el formulario */
     --radio: 14px;
     --header-altura: 4.8rem;        /* alto del header fijo; el script lo ajusta al valor real */
@@ -239,7 +239,7 @@ h3 { font-size: 1.25rem; }
     border-bottom: 3px solid var(--acento);
 }
 
-/* HERO: degradado negro -> rojo */
+/* HERO: franja roja en diagonal, de la esquina superior derecha a la inferior izquierda */
 .hero {
     min-height: 62vh;
     display: flex;
@@ -249,15 +249,25 @@ h3 { font-size: 1.25rem; }
     border: none;
     border-radius: var(--radio);
     padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem);
-    background: linear-gradient(135deg, var(--negro-escudo) 0%, var(--texto) 45%, var(--acento-fuerte) 100%);
-    color: var(--texto-inverso);
+    background:
+        radial-gradient(ellipse 60% 70% at 50% 50%, var(--superficie) 0%, var(--blanco-transparente) 100%),
+        linear-gradient(135deg,
+            var(--bg) 0%,
+            var(--bg) 20%,
+            var(--franja-suave) 30%,
+            var(--acento) 44%,
+            var(--acento) 56%,
+            var(--franja-suave) 70%,
+            var(--bg) 80%,
+            var(--bg) 100%);
+    color: var(--texto);
     box-shadow: var(--sombra);
 }
 
 .hero h1,
 .hero h2,
 .hero h3 {
-    color: var(--texto-inverso);
+    color: var(--texto);
 }
 
 .hero-contenido {
@@ -269,7 +279,7 @@ h3 { font-size: 1.25rem; }
     text-transform: uppercase;
     letter-spacing: 0.25em;
     font-size: 0.85rem;
-    color: var(--detalle-hero);
+    color: var(--texto);
 }
 
 .hero-rol {
@@ -280,7 +290,7 @@ h3 { font-size: 1.25rem; }
 .hero-frase {
     max-width: 34rem;
     margin: 0 auto 1.25rem;
-    color: var(--texto-inverso-suave);
+    color: var(--texto-suave);
 }
 
 .hero-botones {
@@ -319,14 +329,14 @@ h3 { font-size: 1.25rem; }
 
 .btn-cta-secundario {
     background-color: transparent;
-    border-color: var(--texto-inverso);
-    color: var(--texto-inverso);
+    border-color: var(--acento);
+    color: var(--acento);
 }
 
 .btn-cta-secundario:hover {
-    background-color: var(--texto-inverso);
-    border-color: var(--texto-inverso);
-    color: var(--footer);
+    background-color: var(--acento);
+    border-color: var(--acento);
+    color: var(--texto-inverso);
 }
 
 /* ============================================================
