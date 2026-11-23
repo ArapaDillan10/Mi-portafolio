@@ -1,33 +1,34 @@
 /* ============================================================
    1. VARIABLES (paleta, fuentes y medidas)
-   Todos los colores viven acá: si querés cambiar el estilo,
-   tocá esta parte y no el resto del archivo.
+   Todos los colores viven acá. Si querés probar otro estilo,
+   cambiá esta parte y no el resto del archivo.
+   Fuentes del sistema: no dependemos de Google Fonts ni de internet.
    ============================================================ */
 :root {
-    --bg: #0B0B0F;              /* negro carbón: fondo general */
-    --superficie: #17171E;      /* gris oscuro: secciones y barra lateral */
-    --tarjeta: #121218;         /* gris más oscuro: tarjetas y campos */
-    --footer: #050508;          /* casi negro: pie de página */
-    --borde: #2A2A36;           /* bordes suaves */
-    --texto: #F2F2F5;           /* blanco hueso: texto principal */
-    --texto-suave: #B9B9C6;     /* gris claro: textos secundarios */
-    --placeholder: #7A7A8A;     /* texto de ayuda en formularios */
-    --acento: #E63946;          /* rojo vivo: detalles y hover */
-    --acento-hover: #D92D3B;    /* rojo un poco más claro: hover */
-    --acento-fuerte: #C1121F;   /* rojo profundo: botones con texto blanco */
-    --acento-suave: rgba(230, 57, 70, 0.14);
-    --acento-borde: rgba(230, 57, 70, 0.40);
-    --foco: rgba(230, 57, 70, 0.35);
-    --azul: #1E3A8A;            /* azul noche: apoyo en el hero */
-    --valido: #3FBF7F;          /* verde suave: campo válido */
-    --marcador: #FFD97D;        /* dorado: tus [COMPLETAR] */
-    --marcador-suave: rgba(255, 217, 125, 0.10);
-    --marcador-borde: rgba(255, 217, 125, 0.45);
+    --bg: #F6F4F0;                  /* crema claro: fondo general */
+    --superficie: #FFFFFF;          /* blanco: secciones y barra lateral */
+    --tarjeta: #F0EDE7;             /* crema más oscuro: tarjetas y campos */
+    --footer: #1A1A1A;              /* negro suave: pie de página y hero */
+    --borde: #DCD6CC;               /* bordes discretos */
+    --texto: #1A1A1A;               /* negro suave: texto principal */
+    --texto-suave: #5A5751;         /* gris cálido: textos secundarios */
+    --texto-inverso: #F5F2EC;       /* blanco cálido: texto sobre fondo oscuro */
+    --texto-inverso-suave: #D8D3C9; /* gris claro: texto secundario sobre oscuro */
+    --placeholder: #7A756D;         /* texto de ayuda en formularios */
+    --acento: #A11E2B;              /* rojo profundo: detalles */
+    --acento-hover: #C22838;        /* rojo más vivo: hover */
+    --acento-fuerte: #8A1723;       /* vino: botones con texto claro */
+    --acento-suave: rgba(161, 30, 43, 0.10);
+    --acento-borde: rgba(161, 30, 43, 0.30);
+    --foco: rgba(161, 30, 43, 0.30);
+    --azul: #1F3A5F;                /* azul acero: apoyo en el hero */
+    --valido: #2E7D5B;              /* verde suave: campo válido */
+    --dorado: #E8C07D;              /* dorado: detalle del hero */
     --radio: 14px;
-    --sombra: 0 8px 24px rgba(0, 0, 0, 0.35);
-    --sombra-suave: 0 4px 14px rgba(0, 0, 0, 0.25);
-    --fuente-texto: 'Poppins', sans-serif;
-    --fuente-titulo: 'Montserrat', sans-serif;
+    --sombra: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --sombra-suave: 0 4px 14px rgba(0, 0, 0, 0.08);
+    --fuente-texto: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --fuente-titulo: Georgia, "Times New Roman", serif;
 }
 
 /* ============================================================
@@ -75,7 +76,7 @@ h3 { font-size: 1.25rem; }
 
 /* El foco siempre visible: importante para navegar con teclado */
 :focus-visible {
-    outline: 3px solid var(--marcador);
+    outline: 3px solid var(--acento);
     outline-offset: 3px;
 }
 
@@ -108,13 +109,14 @@ h3 { font-size: 1.25rem; }
     position: sticky;
     top: 0;
     z-index: 20;
-    background-color: var(--bg);
-    border-bottom: 2px solid var(--acento-fuerte);
+    background-color: var(--superficie);
+    border-bottom: 2px solid var(--acento);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 0.75rem 1rem;
     padding: 0.9rem clamp(1rem, 4vw, 2rem);
+    box-shadow: var(--sombra-suave);
 }
 
 .brand {
@@ -127,7 +129,7 @@ h3 { font-size: 1.25rem; }
 .btn-menu {
     margin-left: auto;
     background-color: var(--acento-fuerte);
-    color: var(--texto);
+    color: var(--texto-inverso);
     border: 2px solid var(--acento-fuerte);
     border-radius: 999px;
     padding: 0.5rem 1rem;
@@ -218,23 +220,42 @@ h3 { font-size: 1.25rem; }
 }
 
 .main > section {
-    background-color: var(--superficie);
-    border: 1px solid var(--borde);
-    border-radius: var(--radio);
-    padding: clamp(1.25rem, 3vw, 2.25rem);
+    padding: clamp(2rem, 5vw, 3.5rem) 0;
     scroll-margin-top: 6rem;
+    border-bottom: 1px solid var(--borde);
 }
 
-/* HERO: degradado negro -> azul -> rojo */
+.main > section:last-of-type {
+    border-bottom: none;
+}
+
+/* El título lleva una línea roja: reemplaza la caja que tenían las secciones */
+.main > section > h2 {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 3px solid var(--acento);
+}
+
+/* HERO: degradado negro -> azul -> vino */
 .hero {
     min-height: 62vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    border-color: transparent;
-    background: linear-gradient(135deg, var(--bg) 0%, var(--azul) 60%, var(--acento-fuerte) 100%);
+    border: none;
+    border-radius: var(--radio);
+    padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem);
+    background: linear-gradient(135deg, var(--footer) 0%, var(--azul) 60%, var(--acento-fuerte) 100%);
+    color: var(--texto-inverso);
     box-shadow: var(--sombra);
+}
+
+.hero h1,
+.hero h2,
+.hero h3 {
+    color: var(--texto-inverso);
 }
 
 .hero-contenido {
@@ -246,7 +267,7 @@ h3 { font-size: 1.25rem; }
     text-transform: uppercase;
     letter-spacing: 0.25em;
     font-size: 0.85rem;
-    color: var(--marcador);
+    color: var(--dorado);
 }
 
 .hero-rol {
@@ -257,7 +278,7 @@ h3 { font-size: 1.25rem; }
 .hero-frase {
     max-width: 34rem;
     margin: 0 auto 1.25rem;
-    color: var(--texto-suave);
+    color: var(--texto-inverso-suave);
 }
 
 .hero-botones {
@@ -268,7 +289,7 @@ h3 { font-size: 1.25rem; }
 }
 
 /* ============================================================
-   7. BOTONES (compartidos por hero, contacto y formulario)
+   7. BOTONES (hero, contacto y formulario)
    ============================================================ */
 .btn-cta,
 .btn-enviar,
@@ -282,7 +303,7 @@ h3 { font-size: 1.25rem; }
     padding: 0.8rem 1.4rem;
     border: 2px solid var(--acento-fuerte);
     background-color: var(--acento-fuerte);
-    color: var(--texto);
+    color: var(--texto-inverso);
     transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
@@ -296,14 +317,14 @@ h3 { font-size: 1.25rem; }
 
 .btn-cta-secundario {
     background-color: transparent;
-    border-color: var(--texto);
-    color: var(--texto);
+    border-color: var(--texto-inverso);
+    color: var(--texto-inverso);
 }
 
 .btn-cta-secundario:hover {
-    background-color: var(--texto);
-    border-color: var(--texto);
-    color: var(--bg);
+    background-color: var(--texto-inverso);
+    border-color: var(--texto-inverso);
+    color: var(--footer);
 }
 
 /* ============================================================
@@ -375,10 +396,8 @@ h3 { font-size: 1.25rem; }
 
 .lista-habilidades li,
 .lista-formacion li {
-    background-color: var(--tarjeta);
     border-left: 3px solid var(--acento);
-    border-radius: 0 var(--radio) var(--radio) 0;
-    padding: 0.7rem 0.9rem;
+    padding: 0.35rem 0 0.35rem 1rem;
     color: var(--texto-suave);
 }
 
@@ -426,12 +445,6 @@ h3 { font-size: 1.25rem; }
     box-shadow: var(--sombra-suave);
 }
 
-.sobre-mi-figure figcaption {
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    color: var(--texto-suave);
-}
-
 .galeria {
     margin-top: 1.5rem;
 }
@@ -453,7 +466,7 @@ form {
     margin: 0 auto;
     display: grid;
     gap: 0.9rem;
-    background-color: var(--tarjeta);
+    background-color: var(--superficie);
     border: 1px solid var(--borde);
     border-radius: var(--radio);
     padding: clamp(1rem, 3vw, 1.75rem);
@@ -515,7 +528,7 @@ form input:invalid:not(:placeholder-shown) {
 }
 
 /* ============================================================
-   12. PÁGINA DE CONTACTO (header y main propios)
+   12. PÁGINA DE CONTACTO
    ============================================================ */
 .pagina-contacto {
     background-color: var(--bg);
@@ -548,7 +561,7 @@ form input:invalid:not(:placeholder-shown) {
 footer {
     grid-area: footer;
     background-color: var(--footer);
-    color: var(--texto-suave);
+    color: var(--texto-inverso-suave);
     border-top: 1px solid var(--borde);
     text-align: center;
     padding: 1.5rem 1rem;
@@ -556,22 +569,7 @@ footer {
 }
 
 /* ============================================================
-   14. UTILIDAD: marcadores [COMPLETAR]
-   Se ven resaltados para que sepas dónde completar.
-   ============================================================ */
-p.completar,
-span.completar,
-figcaption.completar {
-    background-color: var(--marcador-suave);
-    border: 1px dashed var(--marcador-borde);
-    border-radius: 6px;
-    color: var(--marcador);
-    padding: 0.05rem 0.35rem;
-    font-size: 0.9em;
-}
-
-/* ============================================================
-   15. PANTALLAS GRANDES (desde 768px en adelante)
+   14. PANTALLAS GRANDES (desde 768px en adelante)
    ============================================================ */
 @media (min-width: 768px) {
     .layout {
