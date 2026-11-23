@@ -1,253 +1,620 @@
-/* 1. DEFINICIÓN DE VARIABLES */
+/* ============================================================
+   1. VARIABLES (paleta, fuentes y medidas)
+   Todos los colores viven acá. Si querés probar otro estilo,
+   cambiá esta parte y no el resto del archivo.
+   Fuentes del sistema: no dependemos de Google Fonts ni de internet.
+   ============================================================ */
 :root {
-    --color-primary: #000000;
-    --color-secondary: #ffffff;
-    --color-accent: #c1121f; 
-    --color-sidebar: #ff0000;
-    --color-text: #2e2e2e;  
-    --color-bg: #f4f4f4;  
-    --radius: 8px; 
-    --shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-    --font-main: 'Poppins', sans-serif;
-    --font-titles: 'Montserrat', sans-serif;
+    --bg: #F6F4F0;                  /* crema claro: fondo general */
+    --superficie: #FFFFFF;          /* blanco: secciones y barra lateral */
+    --tarjeta: #F0EDE7;             /* crema más oscuro: tarjetas y campos */
+    --footer: #1A1A1A;              /* negro suave: pie de página y hero */
+    --borde: #DCD6CC;               /* bordes discretos */
+    --texto: #1A1A1A;               /* negro suave: texto principal */
+    --texto-suave: #5A5751;         /* gris cálido: textos secundarios */
+    --texto-inverso: #F5F2EC;       /* blanco cálido: texto sobre fondo oscuro */
+    --texto-inverso-suave: #D8D3C9; /* gris claro: texto secundario sobre oscuro */
+    --placeholder: #7A756D;         /* texto de ayuda en formularios */
+    --acento: #A11E2B;              /* rojo profundo: detalles */
+    --acento-hover: #C22838;        /* rojo más vivo: hover */
+    --acento-fuerte: #8A1723;       /* vino: botones con texto claro */
+    --acento-suave: rgba(161, 30, 43, 0.10);
+    --acento-borde: rgba(161, 30, 43, 0.30);
+    --foco: rgba(161, 30, 43, 0.30);
+    --azul: #1F3A5F;                /* azul acero: apoyo en el hero */
+    --valido: #2E7D5B;              /* verde suave: campo válido */
+    --dorado: #E8C07D;              /* dorado: detalle del hero */
+    --radio: 14px;
+    --sombra: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --sombra-suave: 0 4px 14px rgba(0, 0, 0, 0.08);
+    --fuente-texto: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --fuente-titulo: Georgia, "Times New Roman", serif;
 }
 
-
-.layout {
-    display: grid;
-    grid-template-columns: 220px 1fr; 
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas:
-        "header header"
-        "sidebar main"
-        "footer footer";
-    min-height: 100vh;
-    transition: grid-template-columns 0.4s ease; 
-}
-
-
-.layout.sidebar-oculto {
-    grid-template-columns: 0px 1fr; 
-}
-
-/* 3. ESTILOS DE LOS BLOQUES PRINCIPALES */
-header { 
-    grid-area: header; 
-    background-color: var(--color-primary); 
-    color: var(--color-secondary);
-    display: flex;                
-    justify-content: space-between; 
-    align-items: center;         
-    padding: 1rem 5%;
-}
-
-.sidebar {  
-    grid-area: sidebar;  
-    background-color: var(--color-sidebar);
-    color: var(--color-secondary);
-    padding: 1rem;
-    overflow: hidden; 
-    white-space: nowrap;
-    transition: 0.4s;
-    text-align: left; 
-}
-
-main { 
-    grid-area: main; 
-    padding: 0 40px 40px 40px; 
-    display: flex;
-    flex-direction: column;
-    align-items: stretch; 
-    text-align: center;
-    width: 100%;
+/* ============================================================
+   2. RESET Y BASE (mobile first)
+   ============================================================ */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
-footer { 
-    grid-area: footer; 
-    background-color: #1a1a1a; 
-    color: #ffffff;            
-    text-align: center;
-    padding: 2rem;
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--texto);
+    font-family: var(--fuente-texto);
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--acento);
+}
+
+h1, h2, h3 {
+    font-family: var(--fuente-titulo);
+    line-height: 1.2;
+    color: var(--texto);
     margin-top: 0;
 }
 
-/* 4. ESTILOS GENERALES Y TIPOGRAFÍA */
-body {
-    background-color: var(--color-bg); 
-    font-family: var(--font-main);
-    color: var(--color-text);
+h1 { font-size: clamp(2rem, 6vw, 3.5rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); }
+h3 { font-size: 1.25rem; }
+
+/* El foco siempre visible: importante para navegar con teclado */
+:focus-visible {
+    outline: 3px solid var(--acento);
+    outline-offset: 3px;
+}
+
+/* ============================================================
+   3. ESTRUCTURA GENERAL (grid)
+   En celular: una columna. En pantallas grandes: sidebar + main.
+   ============================================================ */
+.layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+        "header"
+        "sidebar"
+        "main"
+        "footer";
+    transition: grid-template-columns 0.3s ease;
+}
+
+/* El botón ☰ oculta la barra lateral sin romper el grid */
+.layout.sidebar-oculto .sidebar {
+    display: none;
+}
+
+/* ============================================================
+   4. CABECERA Y NAVEGACIÓN
+   ============================================================ */
+.header {
+    grid-area: header;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background-color: var(--superficie);
+    border-bottom: 2px solid var(--acento);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    padding: 0.9rem clamp(1rem, 4vw, 2rem);
+    box-shadow: var(--sombra-suave);
+}
+
+.brand {
     margin: 0;
-    line-height: 1.6;
-    padding: 0; 
-}
-
-h1, h2, h3 { 
-    font-family: var(--font-titles);
+    font-family: var(--fuente-titulo);
     font-weight: 700;
+    font-size: 1.1rem;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.3rem; }
-
-/* 5. COMPONENTES (BOTONES Y NAVEGACIÓN) */
 .btn-menu {
-    background-color: var(--color-accent);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: var(--radius);
+    margin-left: auto;
+    background-color: var(--acento-fuerte);
+    color: var(--texto-inverso);
+    border: 2px solid var(--acento-fuerte);
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    font-family: var(--fuente-texto);
+    font-weight: 600;
     cursor: pointer;
-    font-family: var(--font-main);
-    font-weight: bold;
-    transition: 0.3s;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .btn-menu:hover {
-    background-color: #a00f1a;
-    transform: scale(1.05);
+    background-color: var(--acento-hover);
+    border-color: var(--acento-hover);
+    transform: translateY(-2px);
 }
 
-.sidebar ul {
+.nav-header {
+    flex: 1 1 100%;
+}
+
+.nav-header ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
     list-style: none;
-    padding: 0;
-}
-
-.sidebar li { margin: 15px 0; }
-
-.sidebar a {
-    color: var(--color-secondary);
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.sidebar a:hover { color: var(--color-accent); }
-
-header ul {
-    display: flex;      
-    gap: 15px;          
-    list-style: none;    
     margin: 0;
     padding: 0;
-    flex-wrap: wrap;
 }
 
-header a {
-    text-decoration: none;        
-    color: var(--color-secondary); 
-    font-weight: 600;
-    transition: 0.3s;  
-}
-
-header a:hover { color: var(--color-accent); }
-
-/* 6. SECCIÓN HERO */
-.hero {
-    display: flex;
-    flex-direction: column;  
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;  
-    width: 100%;      
-    text-align: center;
-    background: linear-gradient(135deg, #000 0%, var(--color-accent) 100%);
-    color: white;
-    border-radius: var(--radius);
-}
-
-.btn-cta {
-    margin-top: 20px;
-    padding: 15px 30px;
-    background-color: white;
-    color: var(--color-accent);
+.nav-header a {
+    color: var(--texto);
     text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: 0.3s;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.btn-cta:hover {
-    transform: scale(1.1);
-    background-color: var(--color-secondary);
+.nav-header a:hover {
+    color: var(--acento);
+    border-bottom-color: var(--acento);
 }
 
-/* 7. TARJETAS DE SERVICIOS */
+/* ============================================================
+   5. BARRA LATERAL (accesos rápidos)
+   ============================================================ */
+.sidebar {
+    grid-area: sidebar;
+    background-color: var(--superficie);
+    border-bottom: 2px solid var(--acento);
+    padding: 1rem clamp(1rem, 4vw, 2rem);
+    color: var(--texto);
+}
+
+.sidebar-titulo {
+    margin: 0 0 0.25rem;
+    font-family: var(--fuente-titulo);
+    font-weight: 700;
+    color: var(--acento);
+}
+
+.sidebar p {
+    margin: 0.25rem 0;
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+}
+
+.sidebar a {
+    color: var(--texto);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--acento);
+}
+
+.sidebar a:hover {
+    color: var(--acento);
+}
+
+/* ============================================================
+   6. CONTENIDO PRINCIPAL Y SECCIONES
+   ============================================================ */
+.main {
+    grid-area: main;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: clamp(1rem, 4vw, 2.5rem);
+}
+
+.main > section {
+    padding: clamp(2rem, 5vw, 3.5rem) 0;
+    scroll-margin-top: 6rem;
+    border-bottom: 1px solid var(--borde);
+}
+
+.main > section:last-of-type {
+    border-bottom: none;
+}
+
+/* El título lleva una línea roja: reemplaza la caja que tenían las secciones */
+.main > section > h2 {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 3px solid var(--acento);
+}
+
+/* HERO: degradado negro -> azul -> vino */
+.hero {
+    min-height: 62vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: none;
+    border-radius: var(--radio);
+    padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem);
+    background: linear-gradient(135deg, var(--footer) 0%, var(--azul) 60%, var(--acento-fuerte) 100%);
+    color: var(--texto-inverso);
+    box-shadow: var(--sombra);
+}
+
+.hero h1,
+.hero h2,
+.hero h3 {
+    color: var(--texto-inverso);
+}
+
+.hero-contenido {
+    max-width: 46rem;
+}
+
+.hero-nombre {
+    margin: 0 0 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.85rem;
+    color: var(--dorado);
+}
+
+.hero-rol {
+    margin: 0.25rem 0;
+    font-size: clamp(1.4rem, 4vw, 2.4rem);
+}
+
+.hero-frase {
+    max-width: 34rem;
+    margin: 0 auto 1.25rem;
+    color: var(--texto-inverso-suave);
+}
+
+.hero-botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+/* ============================================================
+   7. BOTONES (hero, contacto y formulario)
+   ============================================================ */
+.btn-cta,
+.btn-enviar,
+.btn-volver {
+    display: inline-block;
+    font-family: var(--fuente-texto);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 999px;
+    padding: 0.8rem 1.4rem;
+    border: 2px solid var(--acento-fuerte);
+    background-color: var(--acento-fuerte);
+    color: var(--texto-inverso);
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-cta:hover,
+.btn-enviar:hover,
+.btn-volver:hover {
+    background-color: var(--acento-hover);
+    border-color: var(--acento-hover);
+    transform: translateY(-2px);
+}
+
+.btn-cta-secundario {
+    background-color: transparent;
+    border-color: var(--texto-inverso);
+    color: var(--texto-inverso);
+}
+
+.btn-cta-secundario:hover {
+    background-color: var(--texto-inverso);
+    border-color: var(--texto-inverso);
+    color: var(--footer);
+}
+
+/* ============================================================
+   8. TARJETAS (proyectos y servicios)
+   ============================================================ */
 .contenedor-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 20px;                             
-    margin: 30px 0;
-    padding: 0 5%;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .card {
-    background-color: var(--color-secondary); 
-    padding: 20px;
-    border-radius: var(--radius);             
-    box-shadow: var(--shadow);                
-    border-top: 5px solid var(--color-accent); 
-    transition: transform 0.3s ease;          
-    text-align: center;
-}
-
-.card h3 { color: var(--color-primary); }
-
-.card:hover { transform: translateY(-10px); }
-
-/* 8. FORMULARIO Y VALIDACIONES */
-form {
-    max-width: 500px;
-    margin: 40px auto; 
     display: flex;
-    flex-direction: column; 
-    gap: 15px; 
-    padding: 20px;
+    flex-direction: column;
+    gap: 0.6rem;
+    background-color: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-top: 4px solid var(--acento);
+    border-radius: var(--radio);
+    padding: 1.25rem;
+    box-shadow: var(--sombra-suave);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-form input, form select, form textarea {
-    padding: 12px;
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra);
+}
+
+.card h3 {
+    margin: 0;
+}
+
+.card p {
+    margin: 0;
+    color: var(--texto-suave);
+}
+
+.card a {
+    color: var(--acento);
+    font-weight: 600;
+    text-underline-offset: 3px;
+}
+
+.etiqueta {
+    align-self: flex-start;
+    display: inline-block;
+    background-color: var(--acento-suave);
+    border: 1px solid var(--acento-borde);
+    color: var(--acento);
+    border-radius: 999px;
+    padding: 0.15rem 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* ============================================================
+   9. LISTAS (habilidades, formación y contacto)
+   ============================================================ */
+.lista-habilidades,
+.lista-formacion {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.6rem;
+}
+
+.lista-habilidades li,
+.lista-formacion li {
+    border-left: 3px solid var(--acento);
+    padding: 0.35rem 0 0.35rem 1rem;
+    color: var(--texto-suave);
+}
+
+.lista-habilidades strong,
+.lista-formacion strong {
+    color: var(--texto);
+}
+
+.lista-contacto {
+    list-style: none;
+    margin: 1rem 0;
+    padding: 0;
+    display: grid;
+    gap: 0.7rem;
+}
+
+.lista-contacto a {
+    display: block;
+    text-decoration: none;
+    color: var(--texto);
+    background-color: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 0.8rem 1rem;
+    font-weight: 600;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.lista-contacto a:hover {
+    border-color: var(--acento);
+    transform: translateX(3px);
+}
+
+/* ============================================================
+   10. FOTO Y GALERÍA
+   ============================================================ */
+.sobre-mi-figure {
+    margin: 1.25rem 0 0;
+}
+
+.sobre-mi-figure img {
+    width: min(100%, 300px);
+    border: 2px solid var(--borde);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra-suave);
+}
+
+.galeria {
+    margin-top: 1.5rem;
+}
+
+.galeria img {
     width: 100%;
-    box-sizing: border-box; 
-    border-radius: var(--radius); 
-    border: 1px solid #ccc;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radio);
+    box-shadow: var(--sombra-suave);
 }
 
-input:focus { border: 2px solid blue; outline: none; }
-input:valid { border: 2px solid green; background-color: #f0fff0; }
-input:invalid:not(:placeholder-shown) { border: 2px solid red; background-color: #fff5f5; }
+/* ============================================================
+   11. FORMULARIO (contact.html)
+   Mantiene las validaciones HTML; solo cambia el aspecto.
+   ============================================================ */
+form {
+    max-width: 34rem;
+    margin: 0 auto;
+    display: grid;
+    gap: 0.9rem;
+    background-color: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: clamp(1rem, 3vw, 1.75rem);
+}
 
-/*tamaños para la pantalla */
+form label {
+    color: var(--texto);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
 
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 0.75rem 0.85rem;
+    background-color: var(--bg);
+    color: var(--texto);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+    color: var(--placeholder);
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: var(--acento);
+    outline: 2px solid var(--foco);
+    outline-offset: 2px;
+}
+
+form input:valid {
+    border-color: var(--valido);
+}
+
+form input:invalid:not(:placeholder-shown) {
+    border-color: var(--acento);
+}
+
+.form-acciones {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.form-acciones input {
+    width: auto;
+    accent-color: var(--acento);
+}
+
+.btn-enviar {
+    width: 100%;
+}
+
+/* ============================================================
+   12. PÁGINA DE CONTACTO
+   ============================================================ */
+.pagina-contacto {
+    background-color: var(--bg);
+    color: var(--texto);
+    min-height: 100vh;
+}
+
+.header-contacto {
+    position: static;
+}
+
+.navegacion-contacto {
+    display: flex;
+}
+
+.main-contacto {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: clamp(1rem, 4vw, 2.5rem);
+}
+
+.main-contacto h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* ============================================================
+   13. PIE DE PÁGINA
+   ============================================================ */
+footer {
+    grid-area: footer;
+    background-color: var(--footer);
+    color: var(--texto-inverso-suave);
+    border-top: 1px solid var(--borde);
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* ============================================================
+   14. PANTALLAS GRANDES (desde 768px en adelante)
+   ============================================================ */
 @media (min-width: 768px) {
     .layout {
-        display: grid;
-        grid-template-columns: 250px 1fr; 
+        grid-template-columns: 220px minmax(0, 1fr);
         grid-template-areas:
             "header header"
             "sidebar main"
             "footer footer";
     }
 
-    .sidebar {
-        display: block; 
+    .layout.sidebar-oculto {
+        grid-template-columns: 0 minmax(0, 1fr);
     }
 
-    section {
-        padding: 40px 20px; 
+    .sidebar {
+        border-bottom: none;
+        border-right: 2px solid var(--acento);
+    }
+
+    .btn-menu {
+        margin-left: 0;
+    }
+
+    .nav-header {
+        flex: 0 1 auto;
+        width: auto;
+        margin-left: auto;
+    }
+
+    .hero {
+        min-height: 70vh;
+    }
+
+    .btn-enviar {
+        width: auto;
     }
 }
-
 
 @media (min-width: 1024px) {
     .layout {
-        max-width: 1200px; 
+        max-width: 1200px;
         margin: 0 auto;
-        box-shadow: 0 0 50px rgba(0,0,0,0.1);
+        box-shadow: var(--sombra);
     }
 }
-
 
 @media (min-width: 1440px) {
     .layout {
@@ -255,13 +622,18 @@ input:invalid:not(:placeholder-shown) { border: 2px solid red; background-color:
     }
 }
 
-
-@media (max-width: 767px) {
+/* Si el sistema pide menos animación, la respetamos */
+@media (prefers-reduced-motion: reduce) {
     html {
-        font-size: 14px; 
+        scroll-behavior: auto;
     }
-    
-    .hero h1 {
-        font-size: 1.8rem !important; 
+
+    .btn-cta,
+    .btn-enviar,
+    .btn-volver,
+    .btn-menu,
+    .card,
+    .lista-contacto a {
+        transition: none;
     }
 }
