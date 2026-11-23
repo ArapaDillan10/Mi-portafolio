@@ -180,6 +180,14 @@
     // Botón simple para mostrar/ocultar la barra lateral.
     const btn = document.getElementById('toggleBtn');
     const layout = document.getElementById('contenedorPrincipal');
+    const header = document.querySelector('.header');
+
+    // El menú lateral queda justo debajo del header, aunque cambie de altura.
+    const actualizarAlturaHeader = () => {
+      document.documentElement.style.setProperty('--header-altura', `${header.offsetHeight}px`);
+    };
+    actualizarAlturaHeader();
+    window.addEventListener('resize', actualizarAlturaHeader);
 
     btn.addEventListener('click', () => {
       layout.classList.toggle('sidebar-oculto');
