@@ -26,6 +26,7 @@
     --detalle-hero: #FFFFFF;        /* blanco: detalle del hero */
     --valido: #2E7D5B;              /* verde funcional: indica campo válido en el formulario */
     --radio: 14px;
+    --header-altura: 4.8rem;        /* alto del header fijo; el script lo ajusta al valor real */
     --sombra: 0 8px 24px rgba(0, 0, 0, 0.12);
     --sombra-suave: 0 4px 14px rgba(0, 0, 0, 0.08);
     --fuente-texto: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -43,7 +44,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 6rem;
+    scroll-padding-top: calc(var(--header-altura) + 1rem);
 }
 
 body {
@@ -222,7 +223,7 @@ h3 { font-size: 1.25rem; }
 
 .main > section {
     padding: clamp(2rem, 5vw, 3.5rem) 0;
-    scroll-margin-top: 6rem;
+    scroll-margin-top: calc(var(--header-altura) + 1rem);
     border-bottom: 1px solid var(--borde);
 }
 
@@ -238,7 +239,7 @@ h3 { font-size: 1.25rem; }
     border-bottom: 3px solid var(--acento);
 }
 
-/* HERO: degradado negro -> azul -> vino */
+/* HERO: degradado negro -> rojo */
 .hero {
     min-height: 62vh;
     display: flex;
@@ -572,6 +573,11 @@ footer {
     }
 
     .sidebar {
+        position: sticky;
+        top: var(--header-altura);
+        align-self: start;
+        max-height: calc(100vh - var(--header-altura));
+        overflow-y: auto;
         border-bottom: none;
         border-right: 2px solid var(--acento);
     }
