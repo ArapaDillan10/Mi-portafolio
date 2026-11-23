@@ -5,16 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dillan Arapa | Portafolio</title>
     <meta name="description" content="Portafolio de Dillan Arapa: desarrollo web full-stack y barbería.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
   <div class="layout" id="contenedorPrincipal">
 
-    <!-- CABECERA: un solo menú principal, sin títulos duplicados -->
+    <!-- CABECERA: un solo menú principal -->
     <header class="header">
       <button class="btn-menu" id="toggleBtn" type="button" aria-controls="sidebar" aria-expanded="true">☰ Menú</button>
       <p class="brand">Dillan Arapa</p>
@@ -31,12 +28,11 @@
       </nav>
     </header>
 
-    <!-- BARRA LATERAL: accesos rápidos (no repite el menú completo) -->
+    <!-- BARRA LATERAL: accesos rápidos -->
     <aside class="sidebar" id="sidebar" aria-label="Barra lateral">
       <p class="sidebar-titulo">Dillan Arapa</p>
-      <p>Desarrollo web y barbería.</p>
+      <p>Estudiante en el IES N°6001 · Desarrollo web y barbería.</p>
       <a href="https://github.com/ArapaDillan10" target="_blank" rel="noopener noreferrer">Ver mi GitHub</a>
-      <p class="completar">[COMPLETAR: ¿qué va en la barra lateral? ¿Se mantiene o se unifica con el menú del header?]</p>
     </aside>
 
     <main class="main">
@@ -44,10 +40,10 @@
       <!-- INICIO -->
       <section class="hero" id="inicio" aria-labelledby="titulo-inicio">
         <div class="hero-contenido">
-          <p class="hero-nombre">Dillan Arapa</p>
-          <h1 id="titulo-inicio"><span class="completar">[COMPLETAR: título que querés en el inicio]</span></h1>
+          <p class="hero-nombre">Portafolio · 2026</p>
+          <h1 id="titulo-inicio">Dillan Arapa</h1>
           <p class="hero-rol">Desarrollador Full-Stack &amp; Barbero</p>
-          <p class="hero-frase completar">[COMPLETAR: frase corta]</p>
+          <p class="hero-frase">Construyo sitios web funcionales y, a la par, acompaño a las personas con mi barbería.</p>
           <div class="hero-botones">
             <a href="#proyectos" class="btn-cta">Ver proyectos</a>
             <a href="#contacto" class="btn-cta btn-cta-secundario">Contacto</a>
@@ -62,16 +58,13 @@
         <p>Soy de La Poma. Me formé como barbero en la Academia Fusion Total Studio y disfruto la atención al público. En mi emprendimiento de compra y venta online gestioné ventas, pedidos a proveedores, precios, cobros, envíos y entregas durante 7 meses.</p>
         <figure class="sobre-mi-figure">
           <img src="images/dillanft1jpeg.jpeg" alt="Retrato de Dillan Arapa" width="300">
-          <figcaption class="completar">[COMPLETAR: si querés, agregá una descripción debajo de tu foto]</figcaption>
         </figure>
       </section>
 
       <!-- HABILIDADES -->
       <section id="habilidades" aria-labelledby="titulo-habilidades">
         <h2 id="titulo-habilidades">Habilidades</h2>
-        <p><strong>Domino:</strong> <span class="completar">[COMPLETAR: tecnologías que dominás]</span></p>
-        <p><strong>En aprendizaje:</strong> <span class="completar">[COMPLETAR: tecnologías en aprendizaje]</span></p>
-        <h3>Según mi CV</h3>
+        <h3>Tecnologías y herramientas</h3>
         <ul class="lista-habilidades">
           <li><strong>Desarrollo:</strong> PHP 8, CodeIgniter, JavaScript, TypeScript, React, Python, FastAPI, HTML5, CSS3, Tailwind CSS, Bootstrap</li>
           <li><strong>Datos y herramientas:</strong> MySQL, PostgreSQL, PDO, Git, GitHub, XAMPP, Figma, Vercel, InfinityFree, WinSCP</li>
@@ -87,32 +80,29 @@
           <article class="card">
             <p class="etiqueta">Individual</p>
             <h3>Este portafolio</h3>
-            <p>Sitio de una sola página con HTML5, CSS3 y un script simple para la barra lateral.</p>
-            <p><strong>Demo:</strong> <span class="completar">[COMPLETAR: link de GitHub Pages]</span></p>
+            <p>Sitio de una sola página hecho con HTML5, CSS3 y un script simple para mostrar u ocultar la barra lateral.</p>
           </article>
 
           <article class="card">
             <p class="etiqueta">Individual</p>
             <h3>DKBZA Barber Studio</h3>
-            <p>Sitio web para barbería desarrollado con PHP 8, JavaScript y Bootstrap a partir de un diseño en Figma. Base de datos MySQL normalizada hasta 3FN, CRUD de servicios con PDO y consultas preparadas, login con roles, contraseñas cifradas con bcrypt, protección CSRF, sesión de 30 minutos y bloqueo tras 5 intentos fallidos.</p>
-            <p><strong>Demo:</strong> <span class="completar">[COMPLETAR: link de demo o "no tiene demo online"]</span></p>
+            <p>Sitio web para barbería desarrollado con PHP 8, JavaScript y Bootstrap a partir de un diseño en Figma. Incluye base de datos MySQL normalizada hasta 3FN, CRUD de servicios con PDO y consultas preparadas, login con roles, contraseñas cifradas con bcrypt, protección CSRF, sesión de 30 minutos y bloqueo tras 5 intentos fallidos.</p>
+            <p><strong>Demo:</strong> sin versión online por ahora.</p>
             <a href="https://github.com/ArapaDillan10/Pagina-para-barberias" target="_blank" rel="noopener noreferrer">Ver código</a>
           </article>
 
           <article class="card">
-            <p class="etiqueta">Grupal</p>
+            <p class="etiqueta">Grupal · equipo de 3</p>
             <h3>MS3D Web Application Design</h3>
-            <p>Tienda web de impresión 3D con catálogo, carrito, checkout y panel de pedidos, desarrollada en equipo de 3 integrantes con React 19, TypeScript, FastAPI y PostgreSQL.</p>
-            <p><strong>Mi parte:</strong> <span class="completar">[COMPLETAR: escribí acá qué hiciste vos]</span></p>
-            <p><strong>Demo:</strong> <span class="completar">[COMPLETAR: link de demo]</span></p>
+            <p>Tienda web de impresión 3D con catálogo, carrito, checkout y panel de pedidos, desarrollada en equipo con React 19, TypeScript, FastAPI y PostgreSQL.</p>
+            <p><strong>Mi parte:</strong> participé en el desarrollo en equipo del catálogo, el carrito, el checkout y el panel de pedidos, y colaboré con Git mediante ramas, Pull Requests y revisión de código en el repositorio compartido.</p>
             <a href="https://github.com/ZetahZ/MS3DWebApplicationDesign" target="_blank" rel="noopener noreferrer">Ver código</a>
           </article>
 
           <article class="card">
             <p class="etiqueta">Independiente</p>
             <h3>Emprendimiento de compra y venta online</h3>
-            <p>Gestioné ventas online durante 7 meses (ene 2026 – jul 2026): publicación y oferta de productos, pedidos a proveedores, precios, cobros, envíos y entregas.</p>
-            <p class="completar">[COMPLETAR: ¿mostrar este proyecto en el portafolio o dejarlo solo en el CV?]</p>
+            <p>Durante 7 meses (ene 2026 – jul 2026) gestioné ventas online: publicación y oferta de productos, pedidos a proveedores, precios, cobros, envíos y entregas.</p>
           </article>
 
         </div>
@@ -147,27 +137,9 @@
 
         <div class="galeria">
           <h3>Galería DKBZA</h3>
-          <p class="completar">[COMPLETAR: nombres de las fotos de la galería en images/]</p>
+          <p>Las fotos de mis trabajos van a estar acá. Mientras tanto, el proyecto sigue creciendo.</p>
         </div>
-        <p class="completar">[COMPLETAR: texto sobre tu sueño de tener tu barber studio, si querés agregarlo]</p>
-      </section>
-
-      <!-- HOBBY (a confirmar) -->
-      <section id="hobby" aria-labelledby="titulo-hobby">
-        <h2 id="titulo-hobby">Hobby</h2>
-        <p>Mi hobby es ser barbero. Hace dos años y medio descubrí esta profesión; si bien me llamaba la atención desde mucho antes, ahora la estoy ejerciendo porque siento que no se trata solamente de cortar el pelo, sino de ayudar a las personas a cambiar de estilo, dejarlas más presentables y, muchas veces, de que surja un buen ambiente entre el barbero y el cliente.</p>
-        <p>Si bien mi proceso es medio lento porque a la par de esto también estudio, le dedico el tiempo a ambas cosas. El sueño desde que empecé en el mundo de la barbería es tener mi barber studio DKBZA.</p>
-        <img src="https://imgs.search.brave.com/7MK_6r0to5kd9-cbK6GriLqB2tiUQelKZb6KzQe8VB4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuZnJlc2hhLmNv/bS9sb2NhdGlvbnMvbG9jYXRpb24tcHJv/ZmlsZS1pbWFnZXMv/ODcyNjc3LzIyMzM0/NTIvNjczNjMzNTYt/YzIwNy00ZmQzLWEz/MWMtYzkyZTA3YWI5/OTY4LUJhcmJlcmlh/SGFyZE1pbmQtQVIt/QnVlbm9zQWlyZXMt/QnVlbm9zQWlyZXMt/Q2FwaXRhbGZlZGVy/YWwtRnJlc2hhLmpw/Zz9jbGFzcz13aWR0/aC1zbWFsbA" alt="Interior de una barbería con sillones y espejos" width="400">
-        <p class="completar">[COMPLETAR: ¿conservar esta sección y la foto externa de barbería?]</p>
-      </section>
-
-      <!-- RECOMENDACIÓN (a confirmar) -->
-      <section id="recomendacion" aria-labelledby="titulo-recomendacion">
-        <h2 id="titulo-recomendacion">Recomendación</h2>
-        <p>Recomendación de un cantante que deberías escuchar:
-          <a href="http://www.youtube.com/@ysy__a" target="_blank" rel="noopener noreferrer">Escuchar en YouTube</a>
-        </p>
-        <p class="completar">[COMPLETAR: ¿conservar esta recomendación?]</p>
+        <p>Mi sueño desde que empecé en el mundo de la barbería es tener mi barber studio DKBZA.</p>
       </section>
 
       <!-- CONTACTO -->
