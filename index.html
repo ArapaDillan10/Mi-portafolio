@@ -11,10 +11,8 @@
 <body>
   <div class="layout" id="contenedorPrincipal">
 
-    <!-- CABECERA: un solo menú principal -->
+    <!-- CABECERA: menú principal -->
     <header class="header">
-      <button class="btn-menu" id="toggleBtn" type="button" aria-controls="sidebar" aria-expanded="true">☰ Menú</button>
-      <p class="brand">Arapa Dillan Luigi Adolfo</p>
       <nav class="nav-header" aria-label="Navegación principal">
         <ul>
           <li><a href="#inicio">Inicio</a></li>
@@ -28,25 +26,23 @@
       </nav>
     </header>
 
-    <!-- BARRA LATERAL: accesos rápidos -->
-    <aside class="sidebar" id="sidebar" aria-label="Barra lateral">
-      <p class="sidebar-titulo">Arapa Dillan Luigi Adolfo</p>
-      <p>Estudiante en el IES N°6001 · Desarrollo web y barbería.</p>
-      <a href="https://github.com/ArapaDillan10" target="_blank" rel="noopener noreferrer">Ver mi GitHub</a>
-    </aside>
-
     <main class="main">
 
       <!-- INICIO -->
       <section class="hero" id="inicio" aria-labelledby="titulo-inicio">
         <div class="hero-contenido">
-          <p class="hero-nombre">Portafolio · 2026</p>
-          <h1 id="titulo-inicio">Arapa Dillan Luigi Adolfo</h1>
-          <p class="hero-rol">Desarrollador Full-Stack &amp; Barbero</p>
-          <p class="hero-frase">Construyo sitios web funcionales y ofrezco mi servicio como barbero.</p>
-          <div class="hero-botones">
-            <a href="#proyectos" class="btn-cta">Ver proyectos</a>
-            <a href="#contacto" class="btn-cta btn-cta-secundario">Contacto</a>
+          <figure class="hero-foto">
+            <img src="/images/dillan-formal.jpg" alt="Retrato de Arapa Dillan Luigi Adolfo" width="320" height="320">
+          </figure>
+          <div class="hero-texto">
+            <p class="hero-nombre">Portafolio · 2026</p>
+            <h1 id="titulo-inicio">Arapa Dillan Luigi Adolfo</h1>
+            <p class="hero-rol">Desarrollador Full-Stack &amp; Barbero</p>
+            <p class="hero-frase">Construyo sitios web funcionales y ofrezco mi servicio como barbero.</p>
+            <div class="hero-botones">
+              <a href="#proyectos" class="btn-cta">Ver proyectos</a>
+              <a href="#contacto" class="btn-cta btn-cta-secundario">Contacto</a>
+            </div>
           </div>
         </div>
       </section>
@@ -56,9 +52,7 @@
         <h2 id="titulo-sobre-mi">Sobre mí</h2>
         <p>Estudiante de la Tecnicatura Superior en Análisis de Sistemas y Desarrollo de Software (IES N°6001), con experiencia en desarrollo de aplicaciones web full-stack individuales y en equipo, gestión de un emprendimiento propio y atención al público. Busco oportunidades para seguir incorporando conocimientos y experiencia en entornos reales.</p>
         <p>Soy de La Poma. Me formé como barbero en la Academia Fusion Total Studio y disfruto la atención al público. También gestioné un emprendimiento de compra y venta online durante 7 meses.</p>
-        <figure class="sobre-mi-figure">
-          <img src="images/dillanft1jpeg.jpeg" alt="Retrato de Arapa Dillan Luigi Adolfo" width="300">
-        </figure>
+        <a class="link-github" href="https://github.com/ArapaDillan10" target="_blank" rel="noopener noreferrer">Ver mi GitHub</a>
       </section>
 
       <!-- HABILIDADES -->
@@ -79,18 +73,11 @@
 
           <article class="card">
             <p class="etiqueta">Individual</p>
-            <h3>Este portafolio</h3>
-            <p>Sitio de una sola página con mi presentación, proyectos, formación, servicios y contacto.</p>
-            <p><strong>Rol:</strong> desarrollador (proyecto individual).</p>
-            <p><strong>Tecnologías:</strong> HTML5, CSS3 y JavaScript.</p>
-            <p><strong>Repositorio:</strong> <a href="https://github.com/ArapaDillan10/Mi-portafolio" target="_blank" rel="noopener noreferrer">Ver código</a></p>
-            <p><strong>Demo:</strong> <a href="https://mi-portafolio-arapa.vercel.app/" target="_blank" rel="noopener noreferrer">Ver sitio en vivo</a></p>
-          </article>
-
-          <article class="card">
-            <p class="etiqueta">Individual</p>
             <h3>DKBZA Barber Studio</h3>
-            <p>Sitio web para barbería desarrollado con PHP 8, JavaScript y Bootstrap a partir de un diseño en Figma. Incluye base de datos MySQL normalizada hasta 3FN, CRUD de servicios con PDO y consultas preparadas, login con roles, contraseñas cifradas con bcrypt, protección CSRF, sesión de 30 minutos y bloqueo tras 5 intentos fallidos.</p>
+            <figure class="proyecto-figure">
+              <img src="/images/proyectos/dkbza.png" alt="Captura del sitio DKBZA Barber Studio" loading="lazy">
+            </figure>
+            <p>Página completa para barbería, pensada para automatizar turnos, donde los clientes nuevos pueden conocer los servicios, los barberos, los productos y las especialidades, y dejar una reseña. Fue desarrollada con PHP 8, JavaScript y Bootstrap a partir de un diseño en Figma. Incluye base de datos MySQL normalizada hasta 3FN, CRUD de servicios con PDO y consultas preparadas, login con roles, contraseñas cifradas con bcrypt, protección CSRF, sesión de 30 minutos y bloqueo tras 5 intentos fallidos.</p>
             <p><strong>Rol:</strong> desarrollador web full-stack.</p>
             <p><strong>Tecnologías:</strong> PHP 8, JavaScript, Bootstrap, MySQL y PDO.</p>
             <p><strong>Demo:</strong> <a href="https://dkbza.page.gd/" target="_blank" rel="noopener noreferrer">Ver sitio en vivo</a></p>
@@ -99,18 +86,34 @@
 
           <article class="card">
             <p class="etiqueta">Grupal · equipo de 3</p>
-            <h3>MS3D Web Application Design</h3>
-            <p>Tienda web de impresión 3D con catálogo, carrito, checkout y panel de pedidos, desarrollada en equipo con React 19, TypeScript, FastAPI y PostgreSQL.</p>
+            <h3>ZetahZ 3D (MS3D)</h3>
+            <figure class="proyecto-figure">
+              <img src="/images/proyectos/ms3d.png" alt="Captura del proyecto ZetahZ 3D (MS3D)" loading="lazy">
+            </figure>
+            <p>Entorno digital que conecta a entusiastas, clientes y makers de la impresión 3D: comercio de diseños STL, repuestos de hardware y servicios de impresión, con un panel de gestión para que emprendedores registren su marca y administren sus ventas.</p>
             <p><strong>Rol:</strong> desarrollador full-stack en equipo.</p>
             <p><strong>Tecnologías:</strong> React 19, TypeScript, FastAPI y PostgreSQL.</p>
-            <p><strong>Mi parte:</strong> participé en el desarrollo en equipo del catálogo, el carrito, el checkout y el panel de pedidos, y colaboré con Git mediante ramas, Pull Requests y revisión de código en el repositorio compartido.</p>
+            <p><strong>Mi parte:</strong> participé en la definición de requisitos y la documentación, en el desarrollo de componentes principales del frontend, en la configuración del entorno y de CORS en el backend, en la actualización de la sección de contacto, y en mejoras en el login y la recuperación de contraseña. También colaboré con Git mediante ramas, Pull Requests y revisión de código en el repositorio compartido.</p>
             <p><strong>Demo:</strong> <a href="https://ms-3-d-web-application-design.vercel.app/" target="_blank" rel="noopener noreferrer">Ver demo</a></p>
             <p><strong>Repositorio:</strong> <a href="https://github.com/ZetahZ/MS3DWebApplicationDesign" target="_blank" rel="noopener noreferrer">Ver código</a></p>
           </article>
 
           <article class="card">
+            <p class="etiqueta">Individual</p>
+            <h3>Este portafolio</h3>
+            <figure class="proyecto-figure">
+              <img src="/images/proyectos/portafolio.png" alt="Captura del portafolio personal de Arapa Dillan Luigi Adolfo" loading="lazy">
+            </figure>
+            <p>Sitio de una sola página con mi presentación, proyectos, formación, servicios y contacto.</p>
+            <p><strong>Rol:</strong> desarrollador (proyecto individual).</p>
+            <p><strong>Tecnologías:</strong> HTML5, CSS3 y JavaScript.</p>
+            <p><strong>Repositorio:</strong> <a href="https://github.com/ArapaDillan10/Mi-portafolio" target="_blank" rel="noopener noreferrer">Ver código</a></p>
+          </article>
+
+          <article class="card">
             <p class="etiqueta">Independiente</p>
             <h3>Emprendimiento de compra y venta online</h3>
+            <!-- TODO: agregar datos reales (cantidad de productos, pedidos o clientes) -->
             <p>Durante 7 meses (ene 2026 – jul 2026) gestioné ventas online: publicación y oferta de productos, pedidos a proveedores, precios, cobros, envíos y entregas.</p>
             <p><strong>Rol:</strong> emprendedor · gestión comercial y atención al cliente.</p>
           </article>
@@ -175,23 +178,14 @@
   </div>
 
   <script>
-    // Botón simple para mostrar/ocultar la barra lateral.
-    const btn = document.getElementById('toggleBtn');
-    const layout = document.getElementById('contenedorPrincipal');
+    // Ajusta el alto del header fijo para que el scroll y los anclajes queden bien.
     const header = document.querySelector('.header');
 
-    // El menú lateral queda justo debajo del header, aunque cambie de altura.
     const actualizarAlturaHeader = () => {
       document.documentElement.style.setProperty('--header-altura', `${header.offsetHeight}px`);
     };
     actualizarAlturaHeader();
     window.addEventListener('resize', actualizarAlturaHeader);
-
-    btn.addEventListener('click', () => {
-      layout.classList.toggle('sidebar-oculto');
-      const oculto = layout.classList.contains('sidebar-oculto');
-      btn.setAttribute('aria-expanded', String(!oculto));
-    });
   </script>
 </body>
 </html>

@@ -81,7 +81,6 @@ h3 { font-size: 1.25rem; }
 
 /* ============================================================
    3. ESTRUCTURA GENERAL (grid)
-   En celular: una columna. En pantallas grandes: sidebar + main.
    ============================================================ */
 .layout {
     min-height: 100vh;
@@ -89,15 +88,8 @@ h3 { font-size: 1.25rem; }
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
         "header"
-        "sidebar"
         "main"
         "footer";
-    transition: grid-template-columns 0.3s ease;
-}
-
-/* El botón ☰ oculta la barra lateral sin romper el grid */
-.layout.sidebar-oculto .sidebar {
-    display: none;
 }
 
 /* ============================================================
@@ -116,32 +108,6 @@ h3 { font-size: 1.25rem; }
     gap: 0.75rem 1rem;
     padding: 0.9rem clamp(1rem, 4vw, 2rem);
     box-shadow: var(--sombra-suave);
-}
-
-.brand {
-    margin: 0;
-    font-family: var(--fuente-titulo);
-    font-weight: 700;
-    font-size: 1.1rem;
-}
-
-.btn-menu {
-    margin-left: 0;
-    background-color: var(--acento-fuerte);
-    color: var(--texto-inverso);
-    border: 2px solid var(--acento-fuerte);
-    border-radius: 999px;
-    padding: 0.5rem 1rem;
-    font-family: var(--fuente-texto);
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.btn-menu:hover {
-    background-color: var(--acento-hover);
-    border-color: var(--acento-hover);
-    transform: translateY(-2px);
 }
 
 .nav-header {
@@ -171,40 +137,7 @@ h3 { font-size: 1.25rem; }
     border-bottom-color: var(--acento);
 }
 
-/* ============================================================
-   5. BARRA LATERAL (accesos rápidos)
-   ============================================================ */
-.sidebar {
-    grid-area: sidebar;
-    background-color: var(--superficie);
-    border-bottom: 2px solid var(--acento);
-    padding: 1rem clamp(1rem, 4vw, 2rem);
-    color: var(--texto);
-}
 
-.sidebar-titulo {
-    margin: 0 0 0.25rem;
-    font-family: var(--fuente-titulo);
-    font-weight: 700;
-    color: var(--acento);
-}
-
-.sidebar p {
-    margin: 0.25rem 0;
-    color: var(--texto-suave);
-    font-size: 0.95rem;
-}
-
-.sidebar a {
-    color: var(--texto);
-    font-weight: 600;
-    text-decoration: none;
-    border-bottom: 1px solid var(--acento);
-}
-
-.sidebar a:hover {
-    color: var(--acento);
-}
 
 /* ============================================================
    6. CONTENIDO PRINCIPAL Y SECCIONES
@@ -268,7 +201,29 @@ h3 { font-size: 1.25rem; }
 }
 
 .hero-contenido {
-    max-width: 46rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 56rem;
+}
+
+.hero-foto {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.hero-foto img {
+    width: min(220px, 60vw);
+    height: min(220px, 60vw);
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--superficie);
+    box-shadow: var(--sombra);
+}
+
+.hero-texto {
+    max-width: 38rem;
 }
 
 .hero-nombre {
@@ -342,6 +297,10 @@ h3 { font-size: 1.25rem; }
     margin-top: 1rem;
 }
 
+#proyectos .contenedor-cards {
+    grid-template-columns: 1fr;
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -373,6 +332,18 @@ h3 { font-size: 1.25rem; }
     color: var(--acento);
     font-weight: 600;
     text-underline-offset: 3px;
+}
+
+.proyecto-figure {
+    margin: 0;
+}
+
+.proyecto-figure img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: calc(var(--radio) - 4px);
+    border: 1px solid var(--borde);
 }
 
 .etiqueta {
@@ -437,17 +408,21 @@ h3 { font-size: 1.25rem; }
 }
 
 /* ============================================================
-   10. FOTO
+   10. LINK DE GITHUB (Sobre mí)
    ============================================================ */
-.sobre-mi-figure {
-    margin: 1.25rem 0 0;
+.link-github {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--acento);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--acento);
+    transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.sobre-mi-figure img {
-    width: min(100%, 300px);
-    border: 2px solid var(--borde);
-    border-radius: var(--radio);
-    box-shadow: var(--sombra-suave);
+.link-github:hover {
+    color: var(--acento-hover);
+    border-bottom-color: var(--acento-hover);
 }
 
 /* ============================================================
@@ -468,39 +443,43 @@ footer {
    ============================================================ */
 @media (min-width: 768px) {
     .layout {
-        grid-template-columns: 220px minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr);
         grid-template-areas:
-            "header header"
-            "sidebar main"
-            "footer footer";
-    }
-
-    .layout.sidebar-oculto {
-        grid-template-columns: 0 minmax(0, 1fr);
-    }
-
-    .sidebar {
-        position: sticky;
-        top: var(--header-altura);
-        align-self: start;
-        max-height: calc(100vh - var(--header-altura));
-        overflow-y: auto;
-        border-bottom: none;
-        border-right: 2px solid var(--acento);
-    }
-
-    .btn-menu {
-        margin-left: 0;
+            "header"
+            "main"
+            "footer";
     }
 
     .nav-header {
         flex: 0 1 auto;
         width: auto;
-        margin-left: auto;
     }
 
     .hero {
         min-height: 70vh;
+    }
+
+    .hero-contenido {
+        flex-direction: row;
+        justify-content: center;
+        text-align: left;
+        gap: 2.5rem;
+    }
+
+    .hero-foto img {
+        width: 280px;
+        height: 280px;
+    }
+
+    .hero-botones {
+        justify-content: flex-start;
+    }
+
+    #proyectos .contenedor-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 60rem;
+        margin-left: auto;
+        margin-right: auto;
     }
 
 }
@@ -526,7 +505,6 @@ footer {
     }
 
     .btn-cta,
-    .btn-menu,
     .card,
     .lista-contacto a {
         transition: none;

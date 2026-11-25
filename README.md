@@ -19,12 +19,17 @@ Portafolio personal de una sola página donde presento mi trabajo como desarroll
 
 ```text
 mi-portafolio/
-├── index.html          # página principal del portafolio
+├── index.html                  # página principal del portafolio
 ├── css/
-│   └── style.css       # estilos originales, mobile first
+│   └── style.css               # estilos originales, mobile first
 ├── images/
-│   └── dillanft1jpeg.jpeg
+│   ├── dillan-formal.jpg       # foto formal del Inicio (pendiente de subir)
+│   └── proyectos/
+│       ├── dkbza.png           # captura del proyecto DKBZA
+│       ├── ms3d.png            # captura del proyecto ZetahZ 3D
+│       └── portafolio.png      # placeholder de la captura del portafolio
+├── Arapa-Dillan-CV-ATS-2026.pdf
 ├── README.md
-├── notas-terminal.md   # comandos de terminal usados en el proyecto
-└── reflexion-agile.md  # reflexión sobre Scrum, Kanban y MVP
+├── notas-terminal.md           # comandos de terminal usados en el proyecto
+└── reflexion-agile.md          # reflexión sobre Scrum, Kanban y MVP
 ```
